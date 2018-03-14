@@ -1,0 +1,8 @@
+prefix=/home/racecar/AV_Invisible_Boat/boat-ws/install
+
+Name: web_video_server
+Description: Description of web_video_server
+Version: 0.0.7
+Cflags: 
+Libs: -L/home/racecar/AV_Invisible_Boat/boat-ws/install/lib 
+Requires: 

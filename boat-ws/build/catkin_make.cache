@@ -1,0 +1,2 @@
+async_web_server_cpp:racecar/ackermann_cmd_mux:racecar/racecar:vesc/vesc:vesc/vesc_ackermann:vesc/vesc_driver:vesc/vesc_msgs:web_video_server:zed_cam
+-DCATKIN_DEVEL_PREFIX=/home/racecar/AV_Invisible_Boat/boat-ws/devel -DCMAKE_INSTALL_PREFIX=/home/racecar/AV_Invisible_Boat/boat-ws/install -G Unix Makefiles

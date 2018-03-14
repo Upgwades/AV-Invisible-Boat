@@ -1,0 +1,14 @@
+<package>
+  <description brief="boat">
+
+     boat
+
+  </description>
+  <author>RACECAR User</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/boat</url>
+
+</package>
+
+
