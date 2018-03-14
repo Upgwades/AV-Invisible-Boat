@@ -1,8 +1,8 @@
-# Install script for directory: /home/racecar/AV_Invisible_Boat/boat-ws/src/vesc/vesc_ackermann
+# Install script for directory: /home/racecar/AV-Invisible-Boat/boat-ws/src/vesc/vesc_ackermann
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/racecar/AV_Invisible_Boat/boat-ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/racecar/AV-Invisible-Boat/boat-ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,18 +33,18 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/racecar/AV_Invisible_Boat/boat-ws/build/vesc/vesc_ackermann/catkin_generated/installspace/vesc_ackermann.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/racecar/AV-Invisible-Boat/boat-ws/build/vesc/vesc_ackermann/catkin_generated/installspace/vesc_ackermann.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/vesc_ackermann/cmake" TYPE FILE FILES
-    "/home/racecar/AV_Invisible_Boat/boat-ws/build/vesc/vesc_ackermann/catkin_generated/installspace/vesc_ackermannConfig.cmake"
-    "/home/racecar/AV_Invisible_Boat/boat-ws/build/vesc/vesc_ackermann/catkin_generated/installspace/vesc_ackermannConfig-version.cmake"
+    "/home/racecar/AV-Invisible-Boat/boat-ws/build/vesc/vesc_ackermann/catkin_generated/installspace/vesc_ackermannConfig.cmake"
+    "/home/racecar/AV-Invisible-Boat/boat-ws/build/vesc/vesc_ackermann/catkin_generated/installspace/vesc_ackermannConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/vesc_ackermann" TYPE FILE FILES "/home/racecar/AV_Invisible_Boat/boat-ws/src/vesc/vesc_ackermann/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/vesc_ackermann" TYPE FILE FILES "/home/racecar/AV-Invisible-Boat/boat-ws/src/vesc/vesc_ackermann/package.xml")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
@@ -54,7 +54,7 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/vesc_ackermann/vesc_to_odom_node"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/vesc_ackermann" TYPE EXECUTABLE FILES "/home/racecar/AV_Invisible_Boat/boat-ws/devel/lib/vesc_ackermann/vesc_to_odom_node")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/vesc_ackermann" TYPE EXECUTABLE FILES "/home/racecar/AV-Invisible-Boat/boat-ws/devel/lib/vesc_ackermann/vesc_to_odom_node")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/vesc_ackermann/vesc_to_odom_node" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/vesc_ackermann/vesc_to_odom_node")
     file(RPATH_CHANGE
@@ -74,7 +74,7 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/vesc_ackermann/ackermann_to_vesc_node"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/vesc_ackermann" TYPE EXECUTABLE FILES "/home/racecar/AV_Invisible_Boat/boat-ws/devel/lib/vesc_ackermann/ackermann_to_vesc_node")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/vesc_ackermann" TYPE EXECUTABLE FILES "/home/racecar/AV-Invisible-Boat/boat-ws/devel/lib/vesc_ackermann/ackermann_to_vesc_node")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/vesc_ackermann/ackermann_to_vesc_node" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/vesc_ackermann/ackermann_to_vesc_node")
     file(RPATH_CHANGE
@@ -94,7 +94,7 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libvesc_ackermann_nodelet.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/racecar/AV_Invisible_Boat/boat-ws/devel/lib/libvesc_ackermann_nodelet.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/racecar/AV-Invisible-Boat/boat-ws/devel/lib/libvesc_ackermann_nodelet.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libvesc_ackermann_nodelet.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libvesc_ackermann_nodelet.so")
     file(RPATH_CHANGE
@@ -108,14 +108,14 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/vesc_ackermann" TYPE DIRECTORY FILES "/home/racecar/AV_Invisible_Boat/boat-ws/src/vesc/vesc_ackermann/include/vesc_ackermann/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/vesc_ackermann" TYPE DIRECTORY FILES "/home/racecar/AV-Invisible-Boat/boat-ws/src/vesc/vesc_ackermann/include/vesc_ackermann/")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/vesc_ackermann" TYPE FILE FILES "/home/racecar/AV_Invisible_Boat/boat-ws/src/vesc/vesc_ackermann/vesc_ackermann_nodelet.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/vesc_ackermann" TYPE FILE FILES "/home/racecar/AV-Invisible-Boat/boat-ws/src/vesc/vesc_ackermann/vesc_ackermann_nodelet.xml")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/vesc_ackermann/launch" TYPE DIRECTORY FILES "/home/racecar/AV_Invisible_Boat/boat-ws/src/vesc/vesc_ackermann/launch/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/vesc_ackermann/launch" TYPE DIRECTORY FILES "/home/racecar/AV-Invisible-Boat/boat-ws/src/vesc/vesc_ackermann/launch/")
 endif()
 

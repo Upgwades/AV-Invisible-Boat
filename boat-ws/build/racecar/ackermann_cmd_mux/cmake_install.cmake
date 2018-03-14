@@ -1,8 +1,8 @@
-# Install script for directory: /home/racecar/AV_Invisible_Boat/boat-ws/src/racecar/ackermann_cmd_mux
+# Install script for directory: /home/racecar/AV-Invisible-Boat/boat-ws/src/racecar/ackermann_cmd_mux
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/racecar/AV_Invisible_Boat/boat-ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/racecar/AV-Invisible-Boat/boat-ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,34 +33,34 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/ackermann_cmd_mux" TYPE FILE FILES "/home/racecar/AV_Invisible_Boat/boat-ws/devel/include/ackermann_cmd_mux/reloadConfig.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/ackermann_cmd_mux" TYPE FILE FILES "/home/racecar/AV-Invisible-Boat/boat-ws/devel/include/ackermann_cmd_mux/reloadConfig.h")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/ackermann_cmd_mux" TYPE FILE FILES "/home/racecar/AV_Invisible_Boat/boat-ws/devel/lib/python2.7/dist-packages/ackermann_cmd_mux/__init__.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/ackermann_cmd_mux" TYPE FILE FILES "/home/racecar/AV-Invisible-Boat/boat-ws/devel/lib/python2.7/dist-packages/ackermann_cmd_mux/__init__.py")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  execute_process(COMMAND "/usr/bin/python" -m compileall "/home/racecar/AV_Invisible_Boat/boat-ws/devel/lib/python2.7/dist-packages/ackermann_cmd_mux/cfg")
+  execute_process(COMMAND "/usr/bin/python" -m compileall "/home/racecar/AV-Invisible-Boat/boat-ws/devel/lib/python2.7/dist-packages/ackermann_cmd_mux/cfg")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/ackermann_cmd_mux" TYPE DIRECTORY FILES "/home/racecar/AV_Invisible_Boat/boat-ws/devel/lib/python2.7/dist-packages/ackermann_cmd_mux/cfg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/ackermann_cmd_mux" TYPE DIRECTORY FILES "/home/racecar/AV-Invisible-Boat/boat-ws/devel/lib/python2.7/dist-packages/ackermann_cmd_mux/cfg")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/racecar/AV_Invisible_Boat/boat-ws/build/racecar/ackermann_cmd_mux/catkin_generated/installspace/ackermann_cmd_mux.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/racecar/AV-Invisible-Boat/boat-ws/build/racecar/ackermann_cmd_mux/catkin_generated/installspace/ackermann_cmd_mux.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ackermann_cmd_mux/cmake" TYPE FILE FILES
-    "/home/racecar/AV_Invisible_Boat/boat-ws/build/racecar/ackermann_cmd_mux/catkin_generated/installspace/ackermann_cmd_muxConfig.cmake"
-    "/home/racecar/AV_Invisible_Boat/boat-ws/build/racecar/ackermann_cmd_mux/catkin_generated/installspace/ackermann_cmd_muxConfig-version.cmake"
+    "/home/racecar/AV-Invisible-Boat/boat-ws/build/racecar/ackermann_cmd_mux/catkin_generated/installspace/ackermann_cmd_muxConfig.cmake"
+    "/home/racecar/AV-Invisible-Boat/boat-ws/build/racecar/ackermann_cmd_mux/catkin_generated/installspace/ackermann_cmd_muxConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ackermann_cmd_mux" TYPE FILE FILES "/home/racecar/AV_Invisible_Boat/boat-ws/src/racecar/ackermann_cmd_mux/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ackermann_cmd_mux" TYPE FILE FILES "/home/racecar/AV-Invisible-Boat/boat-ws/src/racecar/ackermann_cmd_mux/package.xml")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
@@ -70,7 +70,7 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libackermann_cmd_mux_nodelet.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/racecar/AV_Invisible_Boat/boat-ws/devel/lib/libackermann_cmd_mux_nodelet.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/racecar/AV-Invisible-Boat/boat-ws/devel/lib/libackermann_cmd_mux_nodelet.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libackermann_cmd_mux_nodelet.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libackermann_cmd_mux_nodelet.so")
     file(RPATH_CHANGE
@@ -84,18 +84,18 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/ackermann_cmd_mux" TYPE DIRECTORY FILES "/home/racecar/AV_Invisible_Boat/boat-ws/src/racecar/ackermann_cmd_mux/include/ackermann_cmd_mux/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/ackermann_cmd_mux" TYPE DIRECTORY FILES "/home/racecar/AV-Invisible-Boat/boat-ws/src/racecar/ackermann_cmd_mux/include/ackermann_cmd_mux/")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ackermann_cmd_mux" TYPE DIRECTORY FILES "/home/racecar/AV_Invisible_Boat/boat-ws/src/racecar/ackermann_cmd_mux/plugins")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ackermann_cmd_mux" TYPE DIRECTORY FILES "/home/racecar/AV-Invisible-Boat/boat-ws/src/racecar/ackermann_cmd_mux/plugins")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ackermann_cmd_mux" TYPE DIRECTORY FILES "/home/racecar/AV_Invisible_Boat/boat-ws/src/racecar/ackermann_cmd_mux/launch")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ackermann_cmd_mux" TYPE DIRECTORY FILES "/home/racecar/AV-Invisible-Boat/boat-ws/src/racecar/ackermann_cmd_mux/launch")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ackermann_cmd_mux" TYPE DIRECTORY FILES "/home/racecar/AV_Invisible_Boat/boat-ws/src/racecar/ackermann_cmd_mux/param")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ackermann_cmd_mux" TYPE DIRECTORY FILES "/home/racecar/AV-Invisible-Boat/boat-ws/src/racecar/ackermann_cmd_mux/param")
 endif()
 

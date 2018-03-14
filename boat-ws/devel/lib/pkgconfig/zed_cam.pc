@@ -1,8 +1,8 @@
-prefix=/home/racecar/AV_Invisible_Boat/boat-ws/devel
+prefix=/home/racecar/AV-Invisible-Boat/boat-ws/devel
 
 Name: zed_cam
 Description: Description of zed_cam
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/racecar/AV_Invisible_Boat/boat-ws/devel/lib 
+Libs: -L/home/racecar/AV-Invisible-Boat/boat-ws/devel/lib 
 Requires: 

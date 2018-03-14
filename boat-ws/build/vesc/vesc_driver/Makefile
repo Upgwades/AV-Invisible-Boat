@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/racecar/AV_Invisible_Boat/boat-ws/src
+CMAKE_SOURCE_DIR = /home/racecar/AV-Invisible-Boat/boat-ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/racecar/AV_Invisible_Boat/boat-ws/build
+CMAKE_BINARY_DIR = /home/racecar/AV-Invisible-Boat/boat-ws/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -135,14 +135,14 @@ install/local/fast: install/local
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/racecar/AV_Invisible_Boat/boat-ws/build/CMakeFiles /home/racecar/AV_Invisible_Boat/boat-ws/build/vesc/vesc_driver/CMakeFiles/progress.marks
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f CMakeFiles/Makefile2 vesc/vesc_driver/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/racecar/AV_Invisible_Boat/boat-ws/build/CMakeFiles 0
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/racecar/AV-Invisible-Boat/boat-ws/build/CMakeFiles /home/racecar/AV-Invisible-Boat/boat-ws/build/vesc/vesc_driver/CMakeFiles/progress.marks
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f CMakeFiles/Makefile2 vesc/vesc_driver/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/racecar/AV-Invisible-Boat/boat-ws/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f CMakeFiles/Makefile2 vesc/vesc_driver/clean
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f CMakeFiles/Makefile2 vesc/vesc_driver/clean
 .PHONY : clean
 
 # The main clean target
@@ -152,22 +152,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f CMakeFiles/Makefile2 vesc/vesc_driver/preinstall
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f CMakeFiles/Makefile2 vesc/vesc_driver/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f CMakeFiles/Makefile2 vesc/vesc_driver/preinstall
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f CMakeFiles/Makefile2 vesc/vesc_driver/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/rule:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f CMakeFiles/Makefile2 vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/rule
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f CMakeFiles/Makefile2 vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/rule
 .PHONY : vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/rule
 
 # Convenience name for target.
@@ -177,12 +177,12 @@ vesc_driver_node: vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/rule
 
 # fast build rule for target.
 vesc_driver_node/fast:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build
 .PHONY : vesc_driver_node/fast
 
 # Convenience name for target.
 vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/rule:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f CMakeFiles/Makefile2 vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/rule
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f CMakeFiles/Makefile2 vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/rule
 .PHONY : vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/rule
 
 # Convenience name for target.
@@ -192,7 +192,7 @@ vesc_driver_nodelet: vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/rule
 
 # fast build rule for target.
 vesc_driver_nodelet/fast:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build
 .PHONY : vesc_driver_nodelet/fast
 
 src/vesc_driver.o: src/vesc_driver.cpp.o
@@ -201,8 +201,8 @@ src/vesc_driver.o: src/vesc_driver.cpp.o
 
 # target to build an object file
 src/vesc_driver.cpp.o:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_driver.cpp.o
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_driver.cpp.o
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_driver.cpp.o
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_driver.cpp.o
 .PHONY : src/vesc_driver.cpp.o
 
 src/vesc_driver.i: src/vesc_driver.cpp.i
@@ -211,8 +211,8 @@ src/vesc_driver.i: src/vesc_driver.cpp.i
 
 # target to preprocess a source file
 src/vesc_driver.cpp.i:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_driver.cpp.i
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_driver.cpp.i
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_driver.cpp.i
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_driver.cpp.i
 .PHONY : src/vesc_driver.cpp.i
 
 src/vesc_driver.s: src/vesc_driver.cpp.s
@@ -221,8 +221,8 @@ src/vesc_driver.s: src/vesc_driver.cpp.s
 
 # target to generate assembly for a file
 src/vesc_driver.cpp.s:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_driver.cpp.s
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_driver.cpp.s
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_driver.cpp.s
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_driver.cpp.s
 .PHONY : src/vesc_driver.cpp.s
 
 src/vesc_driver_node.o: src/vesc_driver_node.cpp.o
@@ -231,7 +231,7 @@ src/vesc_driver_node.o: src/vesc_driver_node.cpp.o
 
 # target to build an object file
 src/vesc_driver_node.cpp.o:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_driver_node.cpp.o
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_driver_node.cpp.o
 .PHONY : src/vesc_driver_node.cpp.o
 
 src/vesc_driver_node.i: src/vesc_driver_node.cpp.i
@@ -240,7 +240,7 @@ src/vesc_driver_node.i: src/vesc_driver_node.cpp.i
 
 # target to preprocess a source file
 src/vesc_driver_node.cpp.i:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_driver_node.cpp.i
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_driver_node.cpp.i
 .PHONY : src/vesc_driver_node.cpp.i
 
 src/vesc_driver_node.s: src/vesc_driver_node.cpp.s
@@ -249,7 +249,7 @@ src/vesc_driver_node.s: src/vesc_driver_node.cpp.s
 
 # target to generate assembly for a file
 src/vesc_driver_node.cpp.s:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_driver_node.cpp.s
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_driver_node.cpp.s
 .PHONY : src/vesc_driver_node.cpp.s
 
 src/vesc_driver_nodelet.o: src/vesc_driver_nodelet.cpp.o
@@ -258,7 +258,7 @@ src/vesc_driver_nodelet.o: src/vesc_driver_nodelet.cpp.o
 
 # target to build an object file
 src/vesc_driver_nodelet.cpp.o:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_driver_nodelet.cpp.o
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_driver_nodelet.cpp.o
 .PHONY : src/vesc_driver_nodelet.cpp.o
 
 src/vesc_driver_nodelet.i: src/vesc_driver_nodelet.cpp.i
@@ -267,7 +267,7 @@ src/vesc_driver_nodelet.i: src/vesc_driver_nodelet.cpp.i
 
 # target to preprocess a source file
 src/vesc_driver_nodelet.cpp.i:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_driver_nodelet.cpp.i
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_driver_nodelet.cpp.i
 .PHONY : src/vesc_driver_nodelet.cpp.i
 
 src/vesc_driver_nodelet.s: src/vesc_driver_nodelet.cpp.s
@@ -276,7 +276,7 @@ src/vesc_driver_nodelet.s: src/vesc_driver_nodelet.cpp.s
 
 # target to generate assembly for a file
 src/vesc_driver_nodelet.cpp.s:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_driver_nodelet.cpp.s
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_driver_nodelet.cpp.s
 .PHONY : src/vesc_driver_nodelet.cpp.s
 
 src/vesc_interface.o: src/vesc_interface.cpp.o
@@ -285,8 +285,8 @@ src/vesc_interface.o: src/vesc_interface.cpp.o
 
 # target to build an object file
 src/vesc_interface.cpp.o:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_interface.cpp.o
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_interface.cpp.o
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_interface.cpp.o
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_interface.cpp.o
 .PHONY : src/vesc_interface.cpp.o
 
 src/vesc_interface.i: src/vesc_interface.cpp.i
@@ -295,8 +295,8 @@ src/vesc_interface.i: src/vesc_interface.cpp.i
 
 # target to preprocess a source file
 src/vesc_interface.cpp.i:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_interface.cpp.i
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_interface.cpp.i
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_interface.cpp.i
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_interface.cpp.i
 .PHONY : src/vesc_interface.cpp.i
 
 src/vesc_interface.s: src/vesc_interface.cpp.s
@@ -305,8 +305,8 @@ src/vesc_interface.s: src/vesc_interface.cpp.s
 
 # target to generate assembly for a file
 src/vesc_interface.cpp.s:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_interface.cpp.s
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_interface.cpp.s
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_interface.cpp.s
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_interface.cpp.s
 .PHONY : src/vesc_interface.cpp.s
 
 src/vesc_packet.o: src/vesc_packet.cpp.o
@@ -315,8 +315,8 @@ src/vesc_packet.o: src/vesc_packet.cpp.o
 
 # target to build an object file
 src/vesc_packet.cpp.o:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_packet.cpp.o
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_packet.cpp.o
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_packet.cpp.o
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_packet.cpp.o
 .PHONY : src/vesc_packet.cpp.o
 
 src/vesc_packet.i: src/vesc_packet.cpp.i
@@ -325,8 +325,8 @@ src/vesc_packet.i: src/vesc_packet.cpp.i
 
 # target to preprocess a source file
 src/vesc_packet.cpp.i:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_packet.cpp.i
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_packet.cpp.i
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_packet.cpp.i
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_packet.cpp.i
 .PHONY : src/vesc_packet.cpp.i
 
 src/vesc_packet.s: src/vesc_packet.cpp.s
@@ -335,8 +335,8 @@ src/vesc_packet.s: src/vesc_packet.cpp.s
 
 # target to generate assembly for a file
 src/vesc_packet.cpp.s:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_packet.cpp.s
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_packet.cpp.s
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_packet.cpp.s
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_packet.cpp.s
 .PHONY : src/vesc_packet.cpp.s
 
 src/vesc_packet_factory.o: src/vesc_packet_factory.cpp.o
@@ -345,8 +345,8 @@ src/vesc_packet_factory.o: src/vesc_packet_factory.cpp.o
 
 # target to build an object file
 src/vesc_packet_factory.cpp.o:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_packet_factory.cpp.o
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_packet_factory.cpp.o
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_packet_factory.cpp.o
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_packet_factory.cpp.o
 .PHONY : src/vesc_packet_factory.cpp.o
 
 src/vesc_packet_factory.i: src/vesc_packet_factory.cpp.i
@@ -355,8 +355,8 @@ src/vesc_packet_factory.i: src/vesc_packet_factory.cpp.i
 
 # target to preprocess a source file
 src/vesc_packet_factory.cpp.i:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_packet_factory.cpp.i
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_packet_factory.cpp.i
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_packet_factory.cpp.i
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_packet_factory.cpp.i
 .PHONY : src/vesc_packet_factory.cpp.i
 
 src/vesc_packet_factory.s: src/vesc_packet_factory.cpp.s
@@ -365,8 +365,8 @@ src/vesc_packet_factory.s: src/vesc_packet_factory.cpp.s
 
 # target to generate assembly for a file
 src/vesc_packet_factory.cpp.s:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_packet_factory.cpp.s
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_packet_factory.cpp.s
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_node.dir/src/vesc_packet_factory.cpp.s
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(MAKE) -f vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/build.make vesc/vesc_driver/CMakeFiles/vesc_driver_nodelet.dir/src/vesc_packet_factory.cpp.s
 .PHONY : src/vesc_packet_factory.cpp.s
 
 # Help Target
@@ -413,6 +413,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

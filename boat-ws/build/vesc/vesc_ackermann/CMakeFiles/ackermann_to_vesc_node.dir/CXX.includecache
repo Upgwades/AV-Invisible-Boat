@@ -6,15 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/home/racecar/AV_Invisible_Boat/boat-ws/src/vesc/vesc_ackermann/include/vesc_ackermann/ackermann_to_vesc.h
+/home/racecar/AV-Invisible-Boat/boat-ws/src/vesc/vesc_ackermann/include/vesc_ackermann/ackermann_to_vesc.h
 ros/ros.h
 -
 ackermann_msgs/AckermannDriveStamped.h
 -
 
-/home/racecar/AV_Invisible_Boat/boat-ws/src/vesc/vesc_ackermann/src/ackermann_to_vesc.cpp
+/home/racecar/AV-Invisible-Boat/boat-ws/src/vesc/vesc_ackermann/src/ackermann_to_vesc.cpp
 vesc_ackermann/ackermann_to_vesc.h
-/home/racecar/AV_Invisible_Boat/boat-ws/src/vesc/vesc_ackermann/src/vesc_ackermann/ackermann_to_vesc.h
+/home/racecar/AV-Invisible-Boat/boat-ws/src/vesc/vesc_ackermann/src/vesc_ackermann/ackermann_to_vesc.h
 cmath
 -
 sstream
@@ -22,11 +22,11 @@ sstream
 std_msgs/Float64.h
 -
 
-/home/racecar/AV_Invisible_Boat/boat-ws/src/vesc/vesc_ackermann/src/ackermann_to_vesc_node.cpp
+/home/racecar/AV-Invisible-Boat/boat-ws/src/vesc/vesc_ackermann/src/ackermann_to_vesc_node.cpp
 ros/ros.h
 -
 vesc_ackermann/ackermann_to_vesc.h
-/home/racecar/AV_Invisible_Boat/boat-ws/src/vesc/vesc_ackermann/src/vesc_ackermann/ackermann_to_vesc.h
+/home/racecar/AV-Invisible-Boat/boat-ws/src/vesc/vesc_ackermann/src/vesc_ackermann/ackermann_to_vesc.h
 
 /opt/ros/kinetic/include/ackermann_msgs/AckermannDrive.h
 string

@@ -2,7 +2,7 @@
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/racecar/AV_Invisible_Boat/boat-ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/racecar/AV-Invisible-Boat/boat-ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

@@ -1,8 +1,8 @@
-# Install script for directory: /home/racecar/AV_Invisible_Boat/boat-ws/src/async_web_server_cpp
+# Install script for directory: /home/racecar/AV-Invisible-Boat/boat-ws/src/async_web_server_cpp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/racecar/AV_Invisible_Boat/boat-ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/racecar/AV-Invisible-Boat/boat-ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,18 +33,18 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/racecar/AV_Invisible_Boat/boat-ws/build/async_web_server_cpp/catkin_generated/installspace/async_web_server_cpp.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/racecar/AV-Invisible-Boat/boat-ws/build/async_web_server_cpp/catkin_generated/installspace/async_web_server_cpp.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/async_web_server_cpp/cmake" TYPE FILE FILES
-    "/home/racecar/AV_Invisible_Boat/boat-ws/build/async_web_server_cpp/catkin_generated/installspace/async_web_server_cppConfig.cmake"
-    "/home/racecar/AV_Invisible_Boat/boat-ws/build/async_web_server_cpp/catkin_generated/installspace/async_web_server_cppConfig-version.cmake"
+    "/home/racecar/AV-Invisible-Boat/boat-ws/build/async_web_server_cpp/catkin_generated/installspace/async_web_server_cppConfig.cmake"
+    "/home/racecar/AV-Invisible-Boat/boat-ws/build/async_web_server_cpp/catkin_generated/installspace/async_web_server_cppConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/async_web_server_cpp" TYPE FILE FILES "/home/racecar/AV_Invisible_Boat/boat-ws/src/async_web_server_cpp/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/async_web_server_cpp" TYPE FILE FILES "/home/racecar/AV-Invisible-Boat/boat-ws/src/async_web_server_cpp/package.xml")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
@@ -54,7 +54,7 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libasync_web_server_cpp.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/racecar/AV_Invisible_Boat/boat-ws/devel/lib/libasync_web_server_cpp.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/racecar/AV-Invisible-Boat/boat-ws/devel/lib/libasync_web_server_cpp.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libasync_web_server_cpp.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libasync_web_server_cpp.so")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -64,12 +64,12 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/async_web_server_cpp" TYPE DIRECTORY FILES "/home/racecar/AV_Invisible_Boat/boat-ws/src/async_web_server_cpp/include/async_web_server_cpp/" FILES_MATCHING REGEX "/[^/]*\\.hpp$" REGEX "/[^/]*\\.h$")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/async_web_server_cpp" TYPE DIRECTORY FILES "/home/racecar/AV-Invisible-Boat/boat-ws/src/async_web_server_cpp/include/async_web_server_cpp/" FILES_MATCHING REGEX "/[^/]*\\.hpp$" REGEX "/[^/]*\\.h$")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/racecar/AV_Invisible_Boat/boat-ws/build/async_web_server_cpp/test/cmake_install.cmake")
+  include("/home/racecar/AV-Invisible-Boat/boat-ws/build/async_web_server_cpp/test/cmake_install.cmake")
 
 endif()
 

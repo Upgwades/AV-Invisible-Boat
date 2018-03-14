@@ -1,8 +1,8 @@
-# Install script for directory: /home/racecar/AV_Invisible_Boat/boat-ws/src/racecar/racecar
+# Install script for directory: /home/racecar/AV-Invisible-Boat/boat-ws/src/racecar/racecar
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/racecar/AV_Invisible_Boat/boat-ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/racecar/AV-Invisible-Boat/boat-ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,21 +33,21 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/racecar/AV_Invisible_Boat/boat-ws/build/racecar/racecar/catkin_generated/installspace/racecar.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/racecar/AV-Invisible-Boat/boat-ws/build/racecar/racecar/catkin_generated/installspace/racecar.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/racecar/cmake" TYPE FILE FILES
-    "/home/racecar/AV_Invisible_Boat/boat-ws/build/racecar/racecar/catkin_generated/installspace/racecarConfig.cmake"
-    "/home/racecar/AV_Invisible_Boat/boat-ws/build/racecar/racecar/catkin_generated/installspace/racecarConfig-version.cmake"
+    "/home/racecar/AV-Invisible-Boat/boat-ws/build/racecar/racecar/catkin_generated/installspace/racecarConfig.cmake"
+    "/home/racecar/AV-Invisible-Boat/boat-ws/build/racecar/racecar/catkin_generated/installspace/racecarConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/racecar" TYPE FILE FILES "/home/racecar/AV_Invisible_Boat/boat-ws/src/racecar/racecar/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/racecar" TYPE FILE FILES "/home/racecar/AV-Invisible-Boat/boat-ws/src/racecar/racecar/package.xml")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/racecar" TYPE DIRECTORY FILES "/home/racecar/AV_Invisible_Boat/boat-ws/src/racecar/racecar/launch")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/racecar" TYPE DIRECTORY FILES "/home/racecar/AV-Invisible-Boat/boat-ws/src/racecar/racecar/launch")
 endif()
 

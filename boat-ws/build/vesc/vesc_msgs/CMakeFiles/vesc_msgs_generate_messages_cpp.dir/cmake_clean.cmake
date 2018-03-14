@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/vesc_msgs_generate_messages_cpp"
-  "/home/racecar/AV_Invisible_Boat/boat-ws/devel/include/vesc_msgs/VescState.h"
-  "/home/racecar/AV_Invisible_Boat/boat-ws/devel/include/vesc_msgs/VescStateStamped.h"
+  "/home/racecar/AV-Invisible-Boat/boat-ws/devel/include/vesc_msgs/VescStateStamped.h"
+  "/home/racecar/AV-Invisible-Boat/boat-ws/devel/include/vesc_msgs/VescState.h"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -8,8 +8,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/async_web_server_cpp.dir/src/websocket_request_handler.cpp.o"
   "CMakeFiles/async_web_server_cpp.dir/src/websocket_message.cpp.o"
   "CMakeFiles/async_web_server_cpp.dir/src/http_request.cpp.o"
-  "/home/racecar/AV_Invisible_Boat/boat-ws/devel/lib/libasync_web_server_cpp.pdb"
-  "/home/racecar/AV_Invisible_Boat/boat-ws/devel/lib/libasync_web_server_cpp.so"
+  "/home/racecar/AV-Invisible-Boat/boat-ws/devel/lib/libasync_web_server_cpp.pdb"
+  "/home/racecar/AV-Invisible-Boat/boat-ws/devel/lib/libasync_web_server_cpp.so"
 )
 
 # Per-language clean rules from dependency scanning.

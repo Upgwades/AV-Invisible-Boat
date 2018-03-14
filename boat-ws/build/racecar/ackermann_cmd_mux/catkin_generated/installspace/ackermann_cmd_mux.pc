@@ -1,8 +1,8 @@
-prefix=/home/racecar/AV_Invisible_Boat/boat-ws/install
+prefix=/home/racecar/AV-Invisible-Boat/boat-ws/install
 
 Name: ackermann_cmd_mux
 Description: Description of ackermann_cmd_mux
 Version: 0.7.0
-Cflags: -I/home/racecar/AV_Invisible_Boat/boat-ws/install/include
-Libs: -L/home/racecar/AV_Invisible_Boat/boat-ws/install/lib -lackermann_cmd_mux_nodelet -lyaml-cpp
+Cflags: -I/home/racecar/AV-Invisible-Boat/boat-ws/install/include
+Libs: -L/home/racecar/AV-Invisible-Boat/boat-ws/install/lib -lackermann_cmd_mux_nodelet -lyaml-cpp
 Requires: roscpp pluginlib nodelet dynamic_reconfigure ackermann_msgs rospy std_msgs

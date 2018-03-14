@@ -55,7 +55,7 @@ def callback(data):
         zed.set_display(rp.get_param('~display'))
         zed.set(bridge.imgmsg_to_cv2(data, "bgr8"))
         impulse = zed.get_impulse(3,13,blue)
-        if impulse != None and not rp.get_param('~stationary'):
+        if impulse != None:
             impulse/=(180)
             old_errors += [impulse]
             if len(old_errors) > 100:
@@ -73,7 +73,7 @@ def follow_line(impulse):
         acceleration = ((0.273861*steering_angle)/(abs(steering_angle)**(3/2)))
         jerk = ((0.136931*(steering_angle**2))/(abs(steering_angle)**(7/2)))
         steering_angle_velocity = 0
-	#steering_angle_velocity = ((-1*sqrt(abs(0.3*steering_angle)))+1)-0.15
+	steering_angle_velocity = ((-1*sqrt(abs(0.3*steering_angle)))+1)-0.15
         print "Steering: %.2f, Speed: %.2f, Acceleration: %.2f, Jerk: %.2f, Angle: %.2f"%(steering_angle,speed,acceleration,jerk,steering_angle_velocity)
         return speed,steering_angle,acceleration,jerk,steering_angle_velocity
     except:

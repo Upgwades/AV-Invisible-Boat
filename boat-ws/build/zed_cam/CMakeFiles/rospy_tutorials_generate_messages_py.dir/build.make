@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/racecar/AV_Invisible_Boat/boat-ws/src
+CMAKE_SOURCE_DIR = /home/racecar/AV-Invisible-Boat/boat-ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/racecar/AV_Invisible_Boat/boat-ws/build
+CMAKE_BINARY_DIR = /home/racecar/AV-Invisible-Boat/boat-ws/build
 
 # Utility rule file for rospy_tutorials_generate_messages_py.
 
@@ -63,10 +63,10 @@ zed_cam/CMakeFiles/rospy_tutorials_generate_messages_py.dir/build: rospy_tutoria
 .PHONY : zed_cam/CMakeFiles/rospy_tutorials_generate_messages_py.dir/build
 
 zed_cam/CMakeFiles/rospy_tutorials_generate_messages_py.dir/clean:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build/zed_cam && $(CMAKE_COMMAND) -P CMakeFiles/rospy_tutorials_generate_messages_py.dir/cmake_clean.cmake
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build/zed_cam && $(CMAKE_COMMAND) -P CMakeFiles/rospy_tutorials_generate_messages_py.dir/cmake_clean.cmake
 .PHONY : zed_cam/CMakeFiles/rospy_tutorials_generate_messages_py.dir/clean
 
 zed_cam/CMakeFiles/rospy_tutorials_generate_messages_py.dir/depend:
-	cd /home/racecar/AV_Invisible_Boat/boat-ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/racecar/AV_Invisible_Boat/boat-ws/src /home/racecar/AV_Invisible_Boat/boat-ws/src/zed_cam /home/racecar/AV_Invisible_Boat/boat-ws/build /home/racecar/AV_Invisible_Boat/boat-ws/build/zed_cam /home/racecar/AV_Invisible_Boat/boat-ws/build/zed_cam/CMakeFiles/rospy_tutorials_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/racecar/AV-Invisible-Boat/boat-ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/racecar/AV-Invisible-Boat/boat-ws/src /home/racecar/AV-Invisible-Boat/boat-ws/src/zed_cam /home/racecar/AV-Invisible-Boat/boat-ws/build /home/racecar/AV-Invisible-Boat/boat-ws/build/zed_cam /home/racecar/AV-Invisible-Boat/boat-ws/build/zed_cam/CMakeFiles/rospy_tutorials_generate_messages_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : zed_cam/CMakeFiles/rospy_tutorials_generate_messages_py.dir/depend
 

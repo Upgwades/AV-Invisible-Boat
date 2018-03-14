@@ -1,8 +1,8 @@
-prefix=/home/racecar/AV_Invisible_Boat/boat-ws/devel
+prefix=/home/racecar/AV-Invisible-Boat/boat-ws/devel
 
 Name: vesc_msgs
 Description: Description of vesc_msgs
 Version: 0.0.1
-Cflags: -I/home/racecar/AV_Invisible_Boat/boat-ws/devel/include
-Libs: -L/home/racecar/AV_Invisible_Boat/boat-ws/devel/lib 
+Cflags: -I/home/racecar/AV-Invisible-Boat/boat-ws/devel/include
+Libs: -L/home/racecar/AV-Invisible-Boat/boat-ws/devel/lib 
 Requires: std_msgs message_runtime

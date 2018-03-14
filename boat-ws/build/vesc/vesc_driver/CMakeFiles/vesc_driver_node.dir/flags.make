@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"vesc_driver\"
 
-CXX_INCLUDES = -I/home/racecar/AV_Invisible_Boat/boat-ws/src/vesc/vesc_driver/include -I/home/racecar/AV_Invisible_Boat/boat-ws/devel/include -I/opt/ros/kinetic/include -I/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp 
+CXX_INCLUDES = -I/home/racecar/AV-Invisible-Boat/boat-ws/src/vesc/vesc_driver/include -I/home/racecar/AV-Invisible-Boat/boat-ws/devel/include -I/opt/ros/kinetic/include -I/opt/ros/kinetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp 
 
