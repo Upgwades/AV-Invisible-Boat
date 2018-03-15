@@ -264,6 +264,9 @@ GTEST_MAIN_LIBRARY:FILEPATH=GTEST_MAIN_LIBRARY-NOTFOUND
 //Path to a library.
 GTEST_MAIN_LIBRARY_DEBUG:FILEPATH=GTEST_MAIN_LIBRARY_DEBUG-NOTFOUND
 
+//Path to a library.
+LOG4CXX_LIBRARY:FILEPATH=/usr/lib/aarch64-linux-gnu/liblog4cxx.so
+
 //lsb_release executable was found
 LSB_FOUND:BOOL=TRUE
 
@@ -369,6 +372,27 @@ cpp_common_DIR:PATH=/opt/ros/kinetic/share/cpp_common/cmake
 //The directory containing a CMake configuration file for cv_bridge.
 cv_bridge_DIR:PATH=/opt/ros/kinetic/share/cv_bridge/cmake
 
+//The directory containing a CMake configuration file for diagnostic_msgs.
+diagnostic_msgs_DIR:PATH=/opt/ros/kinetic/share/diagnostic_msgs/cmake
+
+//The directory containing a CMake configuration file for diagnostic_updater.
+diagnostic_updater_DIR:PATH=/opt/ros/kinetic/share/diagnostic_updater/cmake
+
+//Value Computed by CMake
+driver_base_BINARY_DIR:STATIC=/home/racecar/AV-Invisible-Boat/boat-ws/build/driver_common/driver_base
+
+//The directory containing a CMake configuration file for driver_base.
+driver_base_DIR:PATH=/home/racecar/AV-Invisible-Boat/boat-ws/devel/share/driver_base/cmake
+
+//Value Computed by CMake
+driver_base_SOURCE_DIR:STATIC=/home/racecar/AV-Invisible-Boat/boat-ws/src/driver_common/driver_base
+
+//Value Computed by CMake
+driver_common_BINARY_DIR:STATIC=/home/racecar/AV-Invisible-Boat/boat-ws/build/driver_common/driver_common
+
+//Value Computed by CMake
+driver_common_SOURCE_DIR:STATIC=/home/racecar/AV-Invisible-Boat/boat-ws/src/driver_common/driver_common
+
 //The directory containing a CMake configuration file for dynamic_reconfigure.
 dynamic_reconfigure_DIR:PATH=/opt/ros/kinetic/share/dynamic_reconfigure/cmake
 
@@ -418,11 +442,20 @@ gtest_force_shared_crt:BOOL=OFF
 //Dependencies for the target
 gtest_main_LIB_DEPENDS:STATIC=general;-lpthread;general;gtest;
 
+//Value Computed by CMake
+hokuyo_node_BINARY_DIR:STATIC=/home/racecar/AV-Invisible-Boat/boat-ws/build/hokuyo_node
+
+//Value Computed by CMake
+hokuyo_node_SOURCE_DIR:STATIC=/home/racecar/AV-Invisible-Boat/boat-ws/src/hokuyo_node
+
 //The directory containing a CMake configuration file for image_transport.
 image_transport_DIR:PATH=/opt/ros/kinetic/share/image_transport/cmake
 
 //Path to a library.
 lib:FILEPATH=/opt/ros/kinetic/lib/librostime.so
+
+//Dependencies for the target
+libhokuyo_LIB_DEPENDS:STATIC=general;/opt/ros/kinetic/lib/librosconsole.so;general;/opt/ros/kinetic/lib/librosconsole_log4cxx.so;general;/opt/ros/kinetic/lib/librosconsole_backend_interface.so;general;/usr/lib/aarch64-linux-gnu/liblog4cxx.so;general;/usr/lib/aarch64-linux-gnu/libboost_regex.so;general;/opt/ros/kinetic/lib/librostime.so;general;/opt/ros/kinetic/lib/libcpp_common.so;general;/usr/lib/aarch64-linux-gnu/libboost_system.so;general;/usr/lib/aarch64-linux-gnu/libboost_thread.so;general;/usr/lib/aarch64-linux-gnu/libboost_chrono.so;general;/usr/lib/aarch64-linux-gnu/libboost_date_time.so;general;/usr/lib/aarch64-linux-gnu/libboost_atomic.so;general;/usr/lib/aarch64-linux-gnu/libpthread.so;general;/usr/lib/aarch64-linux-gnu/libconsole_bridge.so;
 
 //The directory containing a CMake configuration file for message_filters.
 message_filters_DIR:PATH=/opt/ros/kinetic/share/message_filters/cmake
@@ -484,6 +517,9 @@ rostest_DIR:PATH=/opt/ros/kinetic/share/rostest/cmake
 //The directory containing a CMake configuration file for rostime.
 rostime_DIR:PATH=/opt/ros/kinetic/share/rostime/cmake
 
+//The directory containing a CMake configuration file for self_test.
+self_test_DIR:PATH=/opt/ros/kinetic/share/self_test/cmake
+
 //The directory containing a CMake configuration file for sensor_msgs.
 sensor_msgs_DIR:PATH=/opt/ros/kinetic/share/sensor_msgs/cmake
 
@@ -510,6 +546,12 @@ tf2_ros_DIR:PATH=/opt/ros/kinetic/share/tf2_ros/cmake
 
 //The directory containing a CMake configuration file for tf.
 tf_DIR:PATH=/opt/ros/kinetic/share/tf/cmake
+
+//Value Computed by CMake
+timestamp_tools_BINARY_DIR:STATIC=/home/racecar/AV-Invisible-Boat/boat-ws/build/driver_common/timestamp_tools
+
+//Value Computed by CMake
+timestamp_tools_SOURCE_DIR:STATIC=/home/racecar/AV-Invisible-Boat/boat-ws/src/driver_common/timestamp_tools
 
 //Value Computed by CMake
 vesc_BINARY_DIR:STATIC=/home/racecar/AV-Invisible-Boat/boat-ws/build/vesc/vesc
@@ -697,7 +739,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=12
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=16
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

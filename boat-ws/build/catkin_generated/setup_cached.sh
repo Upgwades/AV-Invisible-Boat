@@ -7,10 +7,5 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/racecar/AV-Invisible-Boat/boat-ws/devel:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/racecar/AV-Invisible-Boat/boat-ws/devel/lib:$LD_LIBRARY_PATH"
-export PATH="/opt/ros/kinetic/bin:/home/racecar/bin:/home/racecar/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
-export PKG_CONFIG_PATH="/home/racecar/AV-Invisible-Boat/boat-ws/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PATH="/opt/ros/kinetic/bin:/home/racecar/bin:/home/racecar/.local/bin:/home/racecar/bin:/home/racecar/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 export PWD="/home/racecar/AV-Invisible-Boat/boat-ws/build"
-export PYTHONPATH="/home/racecar/AV-Invisible-Boat/boat-ws/devel/lib/python2.7/dist-packages:$PYTHONPATH"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/racecar/AV-Invisible-Boat/boat-ws/devel/share/common-lisp"

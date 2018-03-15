@@ -15,7 +15,7 @@ from sensor_msgs.msg import Image
 # import sensor_msgs.msg.Image
 from cv_bridge import CvBridge, CvBridgeError
 bridge = CvBridge()
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 def get_zed_data():
     pub = rp.Publisher('zed_images',Image,queue_size=1)
     rate = rp.Rate(200)#Hz

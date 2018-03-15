@@ -1,0 +1,8 @@
+prefix=/home/racecar/AV-Invisible-Boat/boat-ws/install
+
+Name: hokuyo_node
+Description: Description of hokuyo_node
+Version: 1.7.8
+Cflags: -I/home/racecar/AV-Invisible-Boat/boat-ws/install/include
+Libs: -L/home/racecar/AV-Invisible-Boat/boat-ws/install/lib -llibhokuyo
+Requires: rosconsole

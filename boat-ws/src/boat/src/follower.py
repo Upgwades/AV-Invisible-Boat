@@ -30,7 +30,7 @@ def rad(degree):
 
 old_errors = [0]
 def steeringControl(error):
-    kp = 0.1
+    kp = 0.065
     ki = 0.0
     kd = 0.0
     

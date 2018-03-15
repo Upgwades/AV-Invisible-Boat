@@ -1,0 +1,8 @@
+prefix=/home/racecar/AV-Invisible-Boat/boat-ws/install
+
+Name: timestamp_tools
+Description: Description of timestamp_tools
+Version: 1.6.8
+Cflags: -I/home/racecar/AV-Invisible-Boat/boat-ws/install/include
+Libs: -L/home/racecar/AV-Invisible-Boat/boat-ws/install/lib 
+Requires: roslib roscpp

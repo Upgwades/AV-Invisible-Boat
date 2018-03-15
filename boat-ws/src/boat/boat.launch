@@ -7,6 +7,9 @@
   <arg name="timer" default="false"/>
   <param name="timer" type="bool" value="$(arg timer)" />
   <node pkg="boat" name="ZED" type="zed.py"/>
+  <node pkg="urg_node" name="LIDAR" type="urg_node">
+     <param name="ip_address" value="192.168.0.10" />
+  </node>
   <node pkg="boat" name="Line_Follower" type="follower.py" output="screen">
      <param name="display" type="bool" value="$(arg show_lines)" />
      <param name="stationary" type="bool" value="$(arg stationary)" />
