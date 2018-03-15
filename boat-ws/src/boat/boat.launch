@@ -4,6 +4,8 @@
   <arg name="run_camera" default="false"/>
   <arg name="show_lines" default="false"/>
   <arg name="stationary" default="true"/>
+  <arg name="timer" default="false"/>
+  <param name="timer" type="bool" value="$(arg timer)" />
   <node pkg="boat" name="ZED" type="zed.py"/>
   <node pkg="boat" name="Line_Follower" type="follower.py" output="screen">
      <param name="display" type="bool" value="$(arg show_lines)" />
