@@ -7,14 +7,12 @@
   <arg name="timer" default="false"/>
   <param name="timer" type="bool" value="$(arg timer)" />
   <node pkg="boat" name="ZED" type="zed.py"/>
-  <node pkg="urg_node" name="LIDAR" type="urg_node">
-     <param name="ip_address" value="192.168.0.10" />
-  </node>
+  <node pkg="boat" name="Avoider" type="avoider.py" output="screen"/>
   <node pkg="boat" name="Line_Follower" type="follower.py" output="screen">
      <param name="display" type="bool" value="$(arg show_lines)" />
      <param name="stationary" type="bool" value="$(arg stationary)" />
   </node>
-  <node pkg="boat" name="Steering" type="driver.py" unless="$(eval arg('stationary'))"/>
+  <node pkg="boat" name="Steering" type="driver.py" unless="$(eval arg('stationary'))" output="screen"/>
   <node pkg="web_video_server" name="web_video_server" type="web_video_server" if="$(eval arg('show_lines'))"/>
 
   <include file="$(find racecar)/launch/includes/$(arg racecar_version)-teleop.launch.xml" unless="$(eval arg('stationary'))">

@@ -11,26 +11,44 @@ Outputs:
 import cv2
 import rospy as rp
 from ackermann_msgs.msg import AckermannDriveStamped, AckermannDrive
+class drive:
+    def __init__(self):
+        self.pub=rp.Publisher("/vesc/ackermann_cmd_mux/input/navigation",AckermannDriveStamped,queue_size=10)#i think this needs to change
+        self.priorities={}
+    def zed_instructions(self,data):
+        priority = 3
+        if priority not in self.priorities:
+            self.priorities[priority] = [data]
+        else:
+            self.priorities[priority] += [data]
+     
+    def lidar_instructions(self,data):
+        priority = 1
+        if priority not in self.priorities:
+            self.priorities[priority] = [data]
+        else:
+            self.priorities[priority] += [data]
+
+    def move(self,data):
+        try:
+            self.pub.publish(data)
+        except Exception as e:
+            print e
+
+    def prioritize(self):
+        if len(self.priorities.keys()) > 0:
+            priority = min(self.priorities.keys())
+            self.move(self.priorities[priority][0])
+            self.priorities[priority].pop(0)
+            if len(self.priorities[priority]) == 0:
+                self.priorities.pop(priority,None)
+            
  
-pub=rp.Publisher("/vesc/ackermann_cmd_mux/input/navigation",AckermannDriveStamped,queue_size=10)#i think this needs to change
-def callback(data):
-    try:
-        pub.publish(data)
-        print(data)
-    except:
-        print("couldnt publish driving instructions, worthless garbage")
- 
-def full_stop(data):
-    try:
-        pub.publish(data)
-    except:
-        print("full stop instructions failed to execute, trash software")
- 
- 
+motor = drive()
 def driver():
-    rp.Subscriber('movement_instructions',AckermannDriveStamped,callback)
-    rp.Subscriber('full_stop',AckermannDriveStamped,full_stop)
-    rp.spin()
+    rp.Subscriber('lidar_instructions',AckermannDriveStamped,motor.lidar_instructions)
+    rp.Subscriber('movement_instructions',AckermannDriveStamped,motor.zed_instructions)
+    while True: motor.prioritize()
  
  
 if __name__=="__main__":
