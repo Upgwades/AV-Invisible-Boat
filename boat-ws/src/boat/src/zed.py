@@ -18,7 +18,7 @@ bridge = CvBridge()
 cap = cv2.VideoCapture(1)
 def get_zed_data():
     pub = rp.Publisher('zed_images',Image,queue_size=1)
-    rate = rp.Rate(200)#Hz
+    rate = rp.Rate(200) #Hz
     while (not rp.is_shutdown()) and (cap.isOpened()):
         ret, frame = cap.read()
         try:
