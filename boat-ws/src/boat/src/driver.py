@@ -8,13 +8,13 @@ Inputs:
 Outputs:
  
 """
-import cv2
 import rospy as rp
 from ackermann_msgs.msg import AckermannDriveStamped, AckermannDrive
 class drive:
     def __init__(self):
         self.pub=rp.Publisher("/vesc/ackermann_cmd_mux/input/navigation",AckermannDriveStamped,queue_size=10)#i think this needs to change
         self.priorities={}
+
     def zed_instructions(self,data):
         priority = 3
         if priority not in self.priorities:
@@ -39,12 +39,15 @@ class drive:
         if len(self.priorities.keys()) > 0:
             priority = min(self.priorities.keys())
             self.move(self.priorities[priority][0])
+            if rp.get_param('show_motor'):
+                print "Priority %d motor instruction"%priority
             self.priorities[priority].pop(0)
             if len(self.priorities[priority]) == 0:
                 self.priorities.pop(priority,None)
             
  
 motor = drive()
+
 def driver():
     rp.Subscriber('lidar_instructions',AckermannDriveStamped,motor.lidar_instructions)
     rp.Subscriber('movement_instructions',AckermannDriveStamped,motor.zed_instructions)
@@ -57,4 +60,3 @@ if __name__=="__main__":
         driver()
     except rp.ROSInterruptException:
         pass
-    cv2.destroyAllWindows()

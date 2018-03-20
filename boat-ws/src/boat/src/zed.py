@@ -16,17 +16,18 @@ from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
 bridge = CvBridge()
 cap = cv2.VideoCapture(1)
+
 def get_zed_data():
     pub = rp.Publisher('zed_images',Image,queue_size=1)
     rate = rp.Rate(200) #Hz
+
     while (not rp.is_shutdown()) and (cap.isOpened()):
         ret, frame = cap.read()
         try:
             output = bridge.cv2_to_imgmsg(frame, "bgr8")
         except CvBridgeError as e:
             print(e)
-        #rp.loginfo(output)
-        pub.publish(output)
+        #pub.publish(output)
         rate.sleep()
     cap.release()
 

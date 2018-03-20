@@ -1,10 +1,58 @@
 import numpy as np
 import rospy as rp
+from math import pi,sqrt
 from sensor_msgs.msg import Image
 import cv2
 
 from cv_bridge import CvBridge, CvBridgeError
 bridge = CvBridge()
+
+def rad(degree):
+	return (degree*pi)/180
+
+def deg(radian):
+    return (radian*180)/pi
+
+class pid_steering:
+    def __init__(self):
+        self.old_errors = [0]
+        self.kp = 0.065
+        self.ki = 0.0
+        self.kd = 0.0
+
+    def set_pid(self,kp=0,ki=0,kd=0):
+        self.kp,self.ki,self.kd = kp,ki,kd
+
+    def add_error(self,error):
+        self.old_errors += [error]
+        if len(self.old_errors) > 100:
+            self.old_errors.pop(0)
+
+    def control(self,error):        
+        proportional = error
+        integral = sum(self.old_errors)
+        derivative = self.old_errors[-2]+error
+
+        output = ((self.kp * proportional) + (self.ki*integral) + (self.kd*derivative))
+        if(output<-1):
+            output = -1
+        if(output>1):
+            output = 1
+        return -output
+
+    def steer(self,impulse):
+        try:
+            steering_angle = self.control(impulse)
+            speed = ((-1*sqrt(abs(0.3*steering_angle)))+1)-0.15
+            acceleration = ((0.273861*steering_angle)/(abs(steering_angle)**(3/2)))
+            jerk = ((0.136931*(steering_angle**2))/(abs(steering_angle)**(7/2)))
+            steering_angle_velocity = 0
+	        #steering_angle_velocity = ((-1*sqrt(abs(0.3*steering_angle)))+1)-0.15
+            #print "Steering: %.2f, Speed: %.2f, Acceleration: %.2f, Jerk: %.2f, Angle: %.2f"%(steering_angle,speed,acceleration,jerk,steering_angle_velocity)
+            return speed,steering_angle,acceleration,jerk,steering_angle_velocity
+        except:
+            print("error")
+
 class timer:
     def __init__(self):
         self.current_time = cv2.getTickCount()
@@ -12,26 +60,34 @@ class timer:
         self.name = "Timer"
         self.times = {}
         self.max_label_size = 30
+
     def set_max_label_size(self,max_label_size):
         self.max_label_size = max_label_size
+
     def set_scale(self,scale):
         self.scale = scale
+
     def set_name(self,name):
         self.name = name
+
     def update(self):   # Good practice to call before first get_time in function, any time it's been "awhile" since relevant code has executed
         if rp.get_param('timer'):
             self.current_time = cv2.getTickCount()
+
     def get_label_avg(self,label):
         if rp.get_param('timer'):
             if label in self.times:
                 print "[%s] %s average: %s%.2f x 10^%d ticks"%(self.name,label,' '*(self.max_label_size-len(label)),(sum(self.times[label])/len(self.times[label]))*(10**self.scale),(-1*self.scale))
             else:
                 print "No such label."
+
     def get_all_avg(self):
         if rp.get_param('timer'):
             print "[%s] Timer averages:"%self.name
-            for label in sorted(self.times.keys()):
+            labels = sorted(self.times.keys())
+            for label in labels:
                 print "\t%s: %s%.2f x 10^%d ticks"%(label,' '*(self.max_label_size-len(label)),(sum(self.times[label])/len(self.times[label]))*(10**self.scale),(-1*self.scale))
+
     def get_time(self,label):   # Gets the time (in ticks) since this same function was last run in this instance (including the overhead of the function itself)
         if rp.get_param('timer'):
             if len(label) <= self.max_label_size:
@@ -57,17 +113,21 @@ class imgproc:
         self.clock = timer()
         self.clock.set_scale(-6)
         self.clock.set_name("imgproc")
+
     def set(self,image):
         self.image = image
         self.height,self.width = self.image.shape[:2]
+
     def set_display(self,boolean):
         self.display = boolean
         if boolean:
             self.web_view = rp.Publisher('show_lines',Image,queue_size=1)
             self.rate = rp.Rate(21)#Hz
+
     def set_ROI(self, ROI):
         self.ROI = np.array([ROI],dtype=np.int32)
         self.ROI_BOUNDS = cv2.boundingRect(self.ROI)
+
     def get_ROI_mask(self,image,crop=True):
         mask = np.zeros_like(image)
         if len(image.shape) > 2:
@@ -80,27 +140,33 @@ class imgproc:
             return cv2.bitwise_and(image,mask)[self.ROI_BOUNDS[1]:self.ROI_BOUNDS[1]+self.ROI_BOUNDS[3],self.ROI_BOUNDS[0]:self.ROI_BOUNDS[0]+self.ROI_BOUNDS[2]]
         else:
             return cv2.bitwise_and(image,mask)
+
     def get_color_mask(self,image,color_range):
         lower = np.array(color_range[0],dtype="uint8")
         upper = np.array(color_range[1],dtype="uint8")
         return cv2.bitwise_and(image,image,mask=cv2.inRange(cv2.cvtColor(image,cv2.COLOR_BGR2HSV), lower, upper))
+
     def get_blur(self, image, blur_size):
 	    return cv2.GaussianBlur(image, (blur_size, blur_size), 0)
+
     def get_grayscale(self,image):
         return cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
-    def clean_image(self,blur_size,color_range):
+
+    def clean_image(self,color_range):
         return self.get_grayscale(self.get_color_mask(self.get_ROI_mask(self.image),color_range))
+
     def slice_image(self,image,slices):
         h,w = image.shape[:2]
         sliceHeight = (h/slices)
         for i in range(slices):
             cv2.line(image, (0, sliceHeight*i), (w,sliceHeight*i), (0,0,0), 1, 0)
         return image,sliceHeight
-    def get_impulse(self,slices,blur_size,color_range):
+
+    def get_impulse(self,slices,color_range):
 
         self.clock.update()
 
-        clean = self.clean_image(blur_size,color_range)
+        clean = self.clean_image(color_range)
 
         self.clock.get_time("Clean image")
 
@@ -175,6 +241,7 @@ class imgproc:
             return None
         else:
             return sum(impulses)
+
     def displayFeed(self,feed):
 	    cv2.imshow('Feed Display', feed)
 	    cv2.waitKey(1)
