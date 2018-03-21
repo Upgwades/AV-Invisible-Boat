@@ -4,11 +4,12 @@ import rospy as rp
 import numpy as np
 import operator
 from math import sqrt
-from car_utils import timer,pid_steering,deg
+from car_utils import timer,pid_steering,deg,clamp
 from ackermann_msgs.msg import AckermannDriveStamped, AckermannDrive
 from sensor_msgs.msg import Image,LaserScan
 
 move_pub = rp.Publisher('lidar_instructions',AckermannDriveStamped,queue_size=10)
+stop_pub = rp.Publisher('full_stop',AckermannDriveStamped,queue_size=10)
 drive_msg_stamped = AckermannDriveStamped()
 drive_msg = AckermannDrive()
 
@@ -17,17 +18,19 @@ clock.set_scale(-6)
 clock.set_name("Avoider")
 
 steering = pid_steering()
-steering.set_pid(kp=0.85,ki=0,kd=0)
+steering.set_pid(kp=0.75,ki=0,kd=0)
 
 def callback(data):
     straight = 540
     left = 900
     right = 180
+    max_width = 10
+    max_width /= 2
     rays = {straight:data.ranges[straight],left:data.ranges[left],right:data.ranges[right]}
     #print data.ranges[left],data.ranges[right]
 
-    if rays[left] < 5 and rays[right] < 5:
-        accuracy = 1  # 4 = 1 degree
+    if rays[left] < max_width and rays[right] < max_width:
+        accuracy = 10  # 4 = 1 degree
 
         clock.update()
 
@@ -37,44 +40,47 @@ def callback(data):
         clock.get_time("Lidar trimming")
 
         settled = False
-
-        while not settled and bool(rays):
-            index = max(rays.iteritems(), key=operator.itemgetter(1))[0]
-            theta = (90 - (index - 180.0)/4)
-            longest = rays[index]
-            side_w = 0.2
-            car_l = 0.5
-            h = sqrt((side_w**2) + (car_l**2))
-            LorR = -1
-            if theta < 0:
-                LorR = 1
-            wheel = int(round(index+(LorR*((90-deg(np.arctan((1*car_l)/side_w)))*4))))
-            #print data.ranges[wheel],h
-            if data.ranges[wheel] > h:
-                settled = True
-		print theta
-                theta/=90
-                steering.add_error(theta)
+        count = 0
+	Front = 130
+	Sides = int(round((270-Front)/4))
+        R_Slice = data.ranges[:right+(Sides*4):accuracy]
+        S_Slice = data.ranges[right+(Sides*4):left-(Sides*4):accuracy]
+        L_Slice = data.ranges[left-(Sides*4)::accuracy]
+        R_avg = sum(R_Slice)/len(R_Slice)
+        L_avg = sum(L_Slice)/len(L_Slice)
+        S_avg = sum(S_Slice)/len(S_Slice)
+        if S_avg < 0.4:
+            drive_msg.speed,drive_msg.steering_angle,drive_msg.acceleration,drive_msg.jerk,drive_msg.steering_angle_velocity = 0,0,0,0,0
+	    drive_msg_stamped.drive = drive_msg
+            stop_pub.publish(drive_msg_stamped)
+        else:
+            longest = (right+(45*4))+(S_Slice.index(max(S_Slice))*accuracy)
+            center = R_avg - L_avg
+            center/=max_width
+            theta = 540 - longest
+            theta/=(4.0*45)
+            impulse = ((2*center)+(0.01*theta))/2
+            impulse *= 10
+            impulse = clamp(impulse,-0.999,0.999)
+            #print center,theta,impulse
+            if -1 < impulse < 1:
+                steering.add_error(impulse)
                 try:
-                    drive_msg.speed,drive_msg.steering_angle,drive_msg.acceleration,drive_msg.jerk,drive_msg.steering_angle_velocity = steering.steer(theta)
-
-                    print drive_msg.steering_angle
+                    drive_msg.speed,drive_msg.steering_angle,drive_msg.acceleration,drive_msg.jerk,drive_msg.steering_angle_velocity = steering.steer(impulse)
+    
                     clock.get_time("Drive instructions")
-
+    
                     drive_msg_stamped.drive = drive_msg
                     move_pub.publish(drive_msg_stamped)
-
+    
                     clock.get_time("Publish drive instructions")
-
+     
                     clock.get_all_avg()
                 except Exception as e:
-                    pass
-            else:
-                rays.pop(index)
-        
-        clock.get_time("Settling")
-        clock.get_all_avg()
-
+                    print e
+            clock.get_time("Settling")
+            clock.get_all_avg()
+    
 def get_laser_data():  
     #rate = rp.Rate(1)#Hz 
     #while not rp.is_shutdown():

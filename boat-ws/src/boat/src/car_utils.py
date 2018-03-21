@@ -7,6 +7,9 @@ import cv2
 from cv_bridge import CvBridge, CvBridgeError
 bridge = CvBridge()
 
+def clamp(n,a,b):
+	return max(min(b,n),a)
+
 def rad(degree):
 	return (degree*pi)/180
 
@@ -36,19 +39,26 @@ class pid_steering:
         output = ((self.kp * proportional) + (self.ki*integral) + (self.kd*derivative))
         if(output<-1):
             output = -1
-        if(output>1):
+        elif(output>1):
             output = 1
         return -output
 
     def steer(self,impulse):
         try:
-            steering_angle = self.control(impulse)
-            speed = ((-1*sqrt(abs(0.3*steering_angle)))+1)-0.15
-            acceleration = ((0.273861*steering_angle)/(abs(steering_angle)**(3/2)))
-            jerk = ((0.136931*(steering_angle**2))/(abs(steering_angle)**(7/2)))
-            steering_angle_velocity = 0
+            if impulse != 0:
+                steering_angle = self.control(impulse)
+                speed = ((-1*sqrt(abs(0.3*steering_angle)))+1)-0.15
+                acceleration = ((0.273861*steering_angle)/(abs(steering_angle)**(3/2)))
+                jerk = ((0.136931*(steering_angle**2))/(abs(steering_angle)**(7/2)))
+                steering_angle_velocity = 0
 	        #steering_angle_velocity = ((-1*sqrt(abs(0.3*steering_angle)))+1)-0.15
-            #print "Steering: %.2f, Speed: %.2f, Acceleration: %.2f, Jerk: %.2f, Angle: %.2f"%(steering_angle,speed,acceleration,jerk,steering_angle_velocity)
+                #print "Steering: %.2f, Speed: %.2f, Acceleration: %.2f, Jerk: %.2f, Angle: %.2f"%(steering_angle,speed,acceleration,jerk,steering_angle_velocity)
+            else:
+                steering_angle = 0
+                speed = 1
+                acceleration = 0
+                jerk = 0
+                steering_angle_velocity = 0
             return speed,steering_angle,acceleration,jerk,steering_angle_velocity
         except:
             print("error")
@@ -101,6 +111,29 @@ class timer:
                 print "[%s] %s: %s%.2f x 10^%d ticks"%(self.name,label,' '*(self.max_label_size-len(label)),current_time*(10**self.scale),(-1*self.scale))
             else:
                 print "Label too long! (%d characters max)"%self.max_label_size
+
+class laserproc:
+    def __init__(self):
+        self.display = False
+        self.image = np.zeros((1,1,3))
+        self.height,self.width = self.image.shape[:2]
+        self.web_view = None
+        self.rate = 0
+    def set_display(self,boolean):
+        self.display(boolean)
+        if boolean:
+            self.web_view = rp.Publisher('show_lines',Image,queue_size=1)
+            self.rate(21)
+    def show_lasers(self,data):
+        size = int(round(max(data)))
+        size += 50
+        size *= 2
+        self.image = np.zeros((size,size,3))
+        self.height,self.width = self.image.shape[:2]
+        cv2.circle(self.image,(size,size), 5, (0,0,255), -1)
+        
+
+
 class imgproc:
     def __init__(self):
         self.display = False

@@ -14,20 +14,17 @@ class drive:
     def __init__(self):
         self.pub=rp.Publisher("/vesc/ackermann_cmd_mux/input/navigation",AckermannDriveStamped,queue_size=10)#i think this needs to change
         self.priorities={}
-
+    
+    def full_stop(self,data):
+    	priority = 0
+	self.priorities[priority] = data
     def zed_instructions(self,data):
         priority = 3
-        if priority not in self.priorities:
-            self.priorities[priority] = [data]
-        else:
-            self.priorities[priority] += [data]
+        self.priorities[priority] = data
      
     def lidar_instructions(self,data):
         priority = 1
-        if priority not in self.priorities:
-            self.priorities[priority] = [data]
-        else:
-            self.priorities[priority] += [data]
+        self.priorities[priority] = data
 
     def move(self,data):
         try:
@@ -38,12 +35,10 @@ class drive:
     def prioritize(self):
         if len(self.priorities.keys()) > 0:
             priority = min(self.priorities.keys())
-            self.move(self.priorities[priority][0])
+            self.move(self.priorities[priority])
             if rp.get_param('show_motor'):
                 print "Priority %d motor instruction"%priority
-            self.priorities[priority].pop(0)
-            if len(self.priorities[priority]) == 0:
-                self.priorities.pop(priority,None)
+            self.priorities.pop(priority,None)
             
  
 motor = drive()
@@ -51,6 +46,7 @@ motor = drive()
 def driver():
     rp.Subscriber('lidar_instructions',AckermannDriveStamped,motor.lidar_instructions)
     rp.Subscriber('movement_instructions',AckermannDriveStamped,motor.zed_instructions)
+    rp.Subscriber('full_stop',AckermannDriveStamped,motor.full_stop)
     while True: motor.prioritize()
  
  
