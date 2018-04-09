@@ -20,6 +20,11 @@ clock.set_name("Avoider")
 steering = pid_steering()
 steering.set_pid(kp=0.75,ki=0,kd=0)
 
+def dont():
+    drive_msg.speed,drive_msg.steering_angle,drive_msg.acceleration,drive_msg.jerk,drive_msg.steering_angle_velocity = 0,0,0,0,0
+    drive_msg_stamped.drive = drive_msg
+    stop_pub.publish(drive_msg_stamped)
+
 def callback(data):
     straight = 540
     left = 900
@@ -49,16 +54,16 @@ def callback(data):
         R_avg = sum(R_Slice)/len(R_Slice)
         L_avg = sum(L_Slice)/len(L_Slice)
         S_avg = sum(S_Slice)/len(S_Slice)
-        if S_avg < 0.4:
-            drive_msg.speed,drive_msg.steering_angle,drive_msg.acceleration,drive_msg.jerk,drive_msg.steering_angle_velocity = 0,0,0,0,0
-	    drive_msg_stamped.drive = drive_msg
-            stop_pub.publish(drive_msg_stamped)
+        goingToCrash = S_avg < 0.4
+
+        if goingToCrash:
+            dont()
         else:
             longest = (right+(45*4))+(S_Slice.index(max(S_Slice))*accuracy)
             center = R_avg - L_avg
             center/=max_width
             theta = 540 - longest
-            theta/=(4.0*45)
+            theta/=(4.0*(Front/2))
             impulse = ((2*center)+(0.01*theta))/2
             impulse *= 10
             impulse = clamp(impulse,-0.999,0.999)
