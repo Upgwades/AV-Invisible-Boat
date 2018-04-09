@@ -8,7 +8,7 @@ from car_utils import timer,pid_steering,deg,clamp
 from ackermann_msgs.msg import AckermannDriveStamped, AckermannDrive
 from sensor_msgs.msg import Image,LaserScan
 
-move_pub = rp.Publisher('lidar_instructions',AckermannDriveStamped,queue_size=10)
+move_pub = rp.Publisher('avoider_instructions',AckermannDriveStamped,queue_size=10)
 stop_pub = rp.Publisher('full_stop',AckermannDriveStamped,queue_size=10)
 drive_msg_stamped = AckermannDriveStamped()
 drive_msg = AckermannDrive()
@@ -67,31 +67,30 @@ def callback(data):
                 steering.add_error(impulse)
                 try:
                     drive_msg.speed,drive_msg.steering_angle,drive_msg.acceleration,drive_msg.jerk,drive_msg.steering_angle_velocity = steering.steer(impulse)
-    
+
                     clock.get_time("Drive instructions")
-    
+
                     drive_msg_stamped.drive = drive_msg
                     move_pub.publish(drive_msg_stamped)
-    
+
                     clock.get_time("Publish drive instructions")
-     
+
                     clock.get_all_avg()
                 except Exception as e:
                     print e
             clock.get_time("Settling")
             clock.get_all_avg()
-    
-def get_laser_data():  
-    #rate = rp.Rate(1)#Hz 
+
+def get_laser_data():
+    #rate = rp.Rate(1)#Hz
     #while not rp.is_shutdown():
     rp.Subscriber('/scan',LaserScan,callback)
     rp.spin()
-    
+
 
 if __name__=="__main__":
     try:
-        rp.init_node('Lidar',anonymous = True)
+        rp.init_node('Avoider',anonymous = True)
         get_laser_data()
     except rp.ROSInterruptException:
         pass
-
