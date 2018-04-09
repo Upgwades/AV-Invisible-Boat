@@ -23,11 +23,11 @@ class orbiter:
 		self.data = {}
 		self.ref_ind = 0
 
-	def set_dir(self,dir):
-		self.direction = dir
-		if dir == "left":
+	def set_dir(self,direction):
+		self.direction = direction
+		if direction == "left":
 			self.ref_ind = 180
-		elif dir == "right":
+		elif direction == "right":
 			self.ref_ind = 900
 
 	def set_data(self,data):
