@@ -17,16 +17,18 @@ clock = timer()
 clock.set_scale(-6)
 clock.set_name("Swerver")
 
+orbit = orbiter()
 cone_counter = 0
 orbit_start = cv2.getTickCount()
 orbit_end = cv2.getTickCount()
 orbit_durations = []
+returning = False
 
 previous_dir = ""
 current_dir = ""
 future_dir = ""
 
-returning = False
+
 
 steering = pid_steering()
 steering.set_pid(kp=0.75,ki=0,kd=0)
@@ -35,23 +37,22 @@ def swerve(lidar_cones,lidar_raw):
     keys = np.array(lidar_cones.keys())
 
     current_dir = previous_dir
+    orbit.set_dir(current_dir)
+    orbit.set_data(lidar_cones)
 
     if keys[(890<keys) && (910>keys)].size > 0 && previous_dir != "left":   #left whisker hit and the current direction your turning is not already left
-        current_dir = "left"
+        orbit.set_dir("left")
         bookKeeping()
     elif  keys[(170<keys) && (190>keys)].size > 0 && previous_dir != "right":
-        current_dir = "right"
+        orbit.set_dir("right")
         bookKeeping()
 
     if current_dir == "left":
-        orbit_left()
-    else if current_dir == "right":
-        orbit_right()
-    else if current_dir == "straight":
+        orbit.orbit_circular()
+    elif current_dir == "straight":
         straight()
-    else:
+    elif cone_counter == 0:
         park()
-
 
     if keys[540<keys].size > keys[540>keys].size:   #there are more outliers on the left than right
         future_dir = "left" #this is probably where you will be turning

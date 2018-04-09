@@ -19,7 +19,6 @@ def deg(radian):
 class orbiter:
 	def __init__(self):
 		self.direction = ""
-		self.origin = 0
 		self.radius = 0.0
 		self.data = {}
 		self.ref_ind = 0
@@ -31,20 +30,9 @@ class orbiter:
 		elif dir == "right":
 			self.ref_ind = 900
 
-	def set_origin(self,o):
-		self.origin = o
-
-	def set_radius(self,r):
-		self.radius = r
-
 	def set_data(self,data):
 		self.data = data
 		self.clean_data()
-
-	def update_all(self,dir,o,r,data):
-		self.direction = dir
-		self.radius = r
-		self.data = data
 
 	def clean_data(self):
 		previous_length = -1
@@ -55,17 +43,51 @@ class orbiter:
 					self.data[key] = max(self.data[key],self.data[key+1])
 					del self.data[key+1]
 
-
 	def orbit_archspiral(self):
-		steering_correction = 0.0
-		return steering_correction
+		error = 0.0
+		closes = min(self.data.keys(), key=lambda x:abs(x-self.ref_ind))
+
+		reff_diff = self.ref_ind - closes
+		if ref_diff > 0:	# if positive the cone moved clockwise in the lidar scan
+			error += ref_diff*.025
+		elif ref_diff < 0:	# if negative the cone moved counter-clockwise in the lidar scan
+			error -= ref_diff*.025
+
+		if self.radius == 0:
+			self.radius = data[closes]
+
+		rad_diff = self.radius - data[closes]
+		if rad_diff > 0:	# if pos than the radius increased...car moving closer
+			error += ref_diff*.025
+		elif rad_diff < 0:	# neg than the car moving away
+			error -= rad_diff*.01
+
+		self.radius = data[closes]
+
+		return error
 
 	def orbit_circular(self):
-		steering_correction = 0.0
+		error = 0.0
 		closes = min(self.data.keys(), key=lambda x:abs(x-self.ref_ind))
-		reff_diff = abs(closes - self.ref_ind)
-		rad_diff = abs(data[closes] - self.radius)
-		return steering_correction
+
+		reff_diff = self.ref_ind - closes
+		if ref_diff > 0:	# if positive the cone moved clockwise in the lidar scan
+			error += ref_diff*.025
+		elif ref_diff < 0:	# if negative the cone moved counter-clockwise in the lidar scan
+			error -= ref_diff*.025
+
+		if self.radius == 0:
+			self.radius = data[closes]
+
+		rad_diff = self.radius - data[closes]
+		if rad_diff > 0:	#if pos than the radius increased...car moving closer
+			error += ref_diff*.01
+		elif rad_diff < 0:	# neg than the car moving away
+			error -= rad_diff*.01
+
+		self.radius = data[closes]
+
+		return error
 
 class pid_steering:
     def __init__(self):
