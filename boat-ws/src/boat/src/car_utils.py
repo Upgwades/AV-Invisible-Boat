@@ -16,6 +16,57 @@ def rad(degree):
 def deg(radian):
     return (radian*180)/pi
 
+class orbiter:
+	def __init__(self):
+		self.direction = ""
+		self.origin = 0
+		self.radius = 0.0
+		self.data = {}
+		self.ref_ind = 0
+
+	def set_dir(self,dir):
+		self.direction = dir
+		if dir == "left":
+			self.ref_ind = 180
+		elif dir == "right":
+			self.ref_ind = 900
+
+	def set_origin(self,o):
+		self.origin = o
+
+	def set_radius(self,r):
+		self.radius = r
+
+	def set_data(self,data):
+		self.data = data
+		self.clean_data()
+
+	def update_all(self,dir,o,r,data):
+		self.direction = dir
+		self.radius = r
+		self.data = data
+
+	def clean_data(self):
+		previous_length = -1
+		while len(self.data) != previous_length:
+			previous_length = len(self.data)
+			for key in range(0,len(self.data)):
+				if key in self.data && key+1 in self.data:
+					self.data[key] = max(self.data[key],self.data[key+1])
+					del self.data[key+1]
+
+
+	def orbit_archspiral(self):
+		steering_correction = 0.0
+		return steering_correction
+
+	def orbit_circular(self):
+		steering_correction = 0.0
+		closes = min(self.data.keys(), key=lambda x:abs(x-self.ref_ind))
+		reff_diff = abs(closes - self.ref_ind)
+		rad_diff = abs(data[closes] - self.radius)
+		return steering_correction
+
 class pid_steering:
     def __init__(self):
         self.old_errors = [0]
@@ -31,7 +82,7 @@ class pid_steering:
         if len(self.old_errors) > 100:
             self.old_errors.pop(0)
 
-    def control(self,error):        
+    def control(self,error):
         proportional = error
         integral = sum(self.old_errors)
         derivative = self.old_errors[-2]+error
@@ -131,7 +182,7 @@ class laserproc:
         self.image = np.zeros((size,size,3))
         self.height,self.width = self.image.shape[:2]
         cv2.circle(self.image,(size,size), 5, (0,0,255), -1)
-        
+
 
 
 class imgproc:
