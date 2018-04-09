@@ -4,7 +4,7 @@ import rospy as rp
 import numpy as np
 import operator
 from math import sqrt
-from car_utils import timer,pid_steering,deg,clamp
+from car_utils import timer,pid_steering,deg,clamp,orbiter
 from ackermann_msgs.msg import AckermannDriveStamped, AckermannDrive
 from sensor_msgs.msg import Image,LaserScan
 
@@ -40,10 +40,10 @@ def swerve(lidar_cones,lidar_raw):
     orbit.set_dir(current_dir)
     orbit.set_data(lidar_cones)
 
-    if keys[(890<keys) && (910>keys)].size > 0 && previous_dir != "left":   #left whisker hit and the current direction your turning is not already left
+    if keys[(890<keys) & (910>keys)].size > 0 and previous_dir != "left":   #left whisker hit and the current direction your turning is not already left
         orbit.set_dir("left")
         bookKeeping()
-    elif  keys[(170<keys) && (190>keys)].size > 0 && previous_dir != "right":
+    elif  keys[(170<keys) & (190>keys)].size > 0 and previous_dir != "right":
         orbit.set_dir("right")
         bookKeeping()
 
@@ -71,19 +71,19 @@ def bookKeeping():
         orbit_duration.append(orbit_end - orbit_begin)
         avg = np.mean(np.array(orbit_durations))
         if orbit_end - orbit_begin > 2*avg:
-            cone_counter--
+            cone_counter-=1
             returning = True
         orbit_start = cv2.getTickCount()
-        if !returning:
-            cone_counter++
+        if not returning:
+            cone_counter+=1
         else:
-            cone_counter--
+            cone_counter-=1
     else:
         orbit_start = cv2.getTickCount()
-        if !returning:
-            cone_counter++
+        if not returning:
+            cone_counter+=1
         else:
-            cone_counter--
+            cone_counter-=1
 
 # def proc_zed():
 
@@ -96,22 +96,15 @@ def proc_lidar(data):
             idx = np.where(outliers == outlier)
             cone_dict.update({idx: outlier})
 
-    return cone_dict, data
+    swerve(cone_dict, data)
 
 def find_outliers(data, m=6):
     data[abs(data - np.mean(data)) < m * np.std(data)] = 0
     return data
 
-def straight():
-
-def orbit_left():
-
-def orbit_right():
-
 def get_laser_data():
     # rp.Subscriber('zed_images',Image,proc_zed,queue_size=1)
-    lidar_cones,lidar_raw = rp.Subscriber('/scan',LaserScan,proc_lidar)
-    swerve(lidar_cones,lidar_raw)
+    rp.Subscriber('/scan',LaserScan,proc_lidar)
     rp.spin()
 
 if __name__=="__main__":

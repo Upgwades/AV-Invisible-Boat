@@ -1,0 +1,25 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+  <arg name="racecar_version" default="racecar-v2" />
+  <arg name="run_camera" default="false"/>
+  <arg name="show_stuff" default="false"/>
+  <arg name="stationary" default="true"/>
+  <arg name="timer" default="false"/>
+  <arg name="show_motor" default="false"/>
+  <arg name="use_cam" default="true"/>
+  <param name="timer" type="bool" value="$(arg timer)" />
+  <param name="show_motor" type="bool" value="$(arg show_motor)" />
+  <param name="use_cam" type="bool" value="$(arg use_cam)" />
+  <node pkg="boat" name="ZED" type="zed.py" if="$(eval arg('use_cam'))"/>
+  <node pkg="boat" name="Swerver" type="swerver.py" output="screen">
+     <param name="display" type="bool" value="$(arg show_stuff)" />
+     <param name="stationary" type="bool" value="$(arg stationary)" />
+  </node>
+  <node pkg="boat" name="Steering" type="driver.py" unless="$(eval arg('stationary'))" output="screen"/>
+  <node pkg="web_video_server" name="web_video_server" type="web_video_server" if="$(eval arg('show_stuff'))"/>
+
+  <include file="$(find racecar)/launch/includes/$(arg racecar_version)-teleop.launch.xml" unless="$(eval arg('stationary'))">
+    <arg name="racecar_version" value="$(arg racecar_version)" />
+    <arg name="run_camera" value="$(arg run_camera)" />
+  </include>
+</launch>

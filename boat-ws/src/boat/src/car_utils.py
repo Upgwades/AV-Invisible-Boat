@@ -39,7 +39,7 @@ class orbiter:
 		while len(self.data) != previous_length:
 			previous_length = len(self.data)
 			for key in range(0,len(self.data)):
-				if key in self.data && key+1 in self.data:
+				if key in self.data and key+1 in self.data:
 					self.data[key] = max(self.data[key],self.data[key+1])
 					del self.data[key+1]
 
