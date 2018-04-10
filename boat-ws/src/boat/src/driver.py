@@ -46,7 +46,7 @@ motor = drive()
 def driver():
     rp.Subscriber('avoider_instructions',AckermannDriveStamped,motor.avoider_instructions)
     rp.Subscriber('movement_instructions',AckermannDriveStamped,motor.zed_instructions)
-    rp.Subscriber('swerver_instructions',AckermannDriveStamped,motor.swerver_instructions)
+    #rp.Subscriber('swerver_instructions',AckermannDriveStamped,motor.swerver_instructions)
     rp.Subscriber('full_stop',AckermannDriveStamped,motor.full_stop)
     while True: motor.prioritize()
 

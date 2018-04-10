@@ -4,7 +4,7 @@ import rospy as rp
 import numpy as np
 import operator
 from math import sqrt
-from car_utils import timer,pid_steering,deg,clamp,orbiter
+from car_utils import timer,pid_steering,deg,clamp,orbiter,deg
 from ackermann_msgs.msg import AckermannDriveStamped, AckermannDrive
 from sensor_msgs.msg import Image,LaserScan
 
@@ -34,6 +34,9 @@ steering = pid_steering()
 steering.set_pid(kp=0.75,ki=0,kd=0)
 
 def swerve(lidar_cones,lidar_raw):
+    global previous_dir
+    global current_dir
+    global future_dir
     keys = np.array(lidar_cones.keys())
 
     current_dir = previous_dir
@@ -52,7 +55,7 @@ def swerve(lidar_cones,lidar_raw):
     elif current_dir == "straight":
         straight()
     elif cone_counter == 0:
-        park()
+        pass#park()
 
     if keys[540<keys].size > keys[540>keys].size:   #there are more outliers on the left than right
         future_dir = "left" #this is probably where you will be turning
@@ -66,11 +69,16 @@ def swerve(lidar_cones,lidar_raw):
 
 
 def bookKeeping():
+    global cone_counter
+    global orbit_start
+    global orbit_end
+    global orbit_durations
+    global returning
     if cone_counter != 0:
         orbit_end = cv2.getTickCount()
-        orbit_duration.append(orbit_end - orbit_begin)
+        orbit_durations.append(orbit_end - orbit_start)
         avg = np.mean(np.array(orbit_durations))
-        if orbit_end - orbit_begin > 2*avg:
+        if orbit_end - orbit_start > 2*avg:
             cone_counter-=1
             returning = True
         orbit_start = cv2.getTickCount()
@@ -88,18 +96,47 @@ def bookKeeping():
 # def proc_zed():
 
 def proc_lidar(data):
-    data = np.array(data.ranges)
-    cone_dict = {}
-    outliers = find_outliers()
-    for outlier in outliers:
-        if outlier != 0:
-            idx = np.where(outliers == outlier)
-            cone_dict.update({idx: outlier})
+    accuracy = 4
+    rays = {}
+    right = 8
+    left = 1080 - right
+    diameter = 0.15
+    max_dist = 1 #meters
+    min_diff = 0.075
+    for x in range(right,left,accuracy):
+        if data.ranges[x] <= max_dist:
+            rays[x] = data.ranges[x]
+    cones = 0
+    groups = {}
+    keys = sorted(rays.keys())
+    if len(keys)>0:
+        last_x = keys[0]
+        for x in keys:
+            size = int(round(deg(np.arctan((2*diameter)/rays[x]))))
+            is_cone = True
+            if x == last_x or x > last_x+size:
+                last_x = x
+                group=[x]
+                for y in range(x+accuracy,x+accuracy+(int(round((size*0.9)))),accuracy):
+                    if y not in rays or abs(rays[x]-rays[y]) > min_diff:
+                        is_cone = False
+                    else:
+                        group+=[y]
+            else:
+                is_cone = False
+            if is_cone:
+                cones += 1
+                groups[cones] = group
+    for x in groups:
+        print "Cone: %d, Index: %d"%(x,int(round(sum(groups[x])/len(groups[x]))))
 
-    swerve(cone_dict, data)
+    #swerve(rays, data)
 
-def find_outliers(data, m=6):
-    data[abs(data - np.mean(data)) < m * np.std(data)] = 0
+def find_outliers(data, m=1):
+    mean = np.mean(data)
+    std = np.std(data)
+    data[abs(data - mean) < m * std] = 0
+    data[data > mean] = 0
     return data
 
 def get_laser_data():
