@@ -26,8 +26,8 @@ def get_zed_data():
         try:
             output = bridge.cv2_to_imgmsg(frame, "bgr8")
         except CvBridgeError as e:
-            print(e)
-        #pub.publish(output)
+            print "ZED ERROR",e
+        pub.publish(output)
         rate.sleep()
     cap.release()
 
@@ -37,4 +37,3 @@ if __name__=="__main__":
         get_zed_data()
     except rp.ROSInterruptException:
         cap.release()
-

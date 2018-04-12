@@ -10,7 +10,7 @@
   <param name="timer" type="bool" value="$(arg timer)" />
   <param name="show_motor" type="bool" value="$(arg show_motor)" />
   <param name="use_cam" type="bool" value="$(arg use_cam)" />
-  <node pkg="boat" name="ZED" type="zed.py" if="$(eval arg('use_cam'))"/>
+  <node pkg="boat" name="ZED" type="zed.py" if="$(eval arg('use_cam'))" output="screen"/>
   <node pkg="boat" name="Swerver" type="swerver.py" output="screen">
      <param name="display" type="bool" value="$(arg show_stuff)" />
      <param name="stationary" type="bool" value="$(arg stationary)" />
