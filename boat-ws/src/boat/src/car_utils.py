@@ -103,6 +103,8 @@ class pid_steering:
 		self.old_errors += [error]
 		if len(self.old_errors) > 100:
 			self.old_errors.pop(0)
+	def wipe_errors():
+		self.old_errors = [0]
 
 	def control(self,error):
 		proportional = error

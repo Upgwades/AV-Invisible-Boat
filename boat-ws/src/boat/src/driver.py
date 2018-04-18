@@ -16,14 +16,18 @@ class drive:
         self.priorities={}
 
     def full_stop(self,data):
-    	priority = 0
-	self.priorities[priority] = data
+        priority = 0
+        self.priorities[priority] = data
     def zed_instructions(self,data):
         priority = 3
         self.priorities[priority] = data
 
     def avoider_instructions(self,data):
         priority = 1
+        self.priorities[priority] = data
+
+    def swerver_instructions(self,data):
+        priority = 5
         self.priorities[priority] = data
 
     def move(self,data):
@@ -46,7 +50,7 @@ motor = drive()
 def driver():
     rp.Subscriber('avoider_instructions',AckermannDriveStamped,motor.avoider_instructions)
     rp.Subscriber('movement_instructions',AckermannDriveStamped,motor.zed_instructions)
-    #rp.Subscriber('swerver_instructions',AckermannDriveStamped,motor.swerver_instructions)
+    rp.Subscriber('swerver_instructions',AckermannDriveStamped,motor.swerver_instructions)
     rp.Subscriber('full_stop',AckermannDriveStamped,motor.full_stop)
     while True: motor.prioritize()
 
